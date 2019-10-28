@@ -1,17 +1,26 @@
-.DS_Store
-node_modules
-/dist
 
-# local env files
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+node_modules
+bower_componets
+*.sublime*
+psd
+thumb
+sketch
+/dist
 .env.local
 .env.*.local
-
-# Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Editor directories and files
 .idea
 .vscode
 *.suo
