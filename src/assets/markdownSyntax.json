@@ -1,0 +1,79 @@
+[
+    {
+        "name": "header 1",
+        "syntax": "#"
+    },
+    {
+        "name": "header 2",
+        "syntax": "##"
+    },
+    {
+        "name": "header 3",
+        "syntax": "###"
+    },
+    {
+        "name": "header 4",
+        "syntax": "####"
+    },
+    {
+        "name": "header 5",
+        "syntax": "####"
+    },
+    {
+        "name": "italic",
+        "syntax": "*text* || _text_"
+    },
+    {
+        "name": "bold",
+        "syntax": "**text** || __text__"
+    },
+    {
+        "name": "unordered list",
+        "syntax": "* item"
+    },
+    {
+        "name": "ordered list",
+        "syntax": "1. item"
+    },
+    {
+        "name": "image",
+        "syntax": "![Alt text](url/location)"
+    },
+    {
+        "name": "link",
+        "syntax": "[name](link)"
+    },
+    {
+        "name": "blockquotes",
+        "syntax": "> text"
+    },
+    {
+        "name": "escape",
+        "syntax": "backslash"
+    },
+    {
+        "name": "mention",
+        "syntax": "@username"
+    },
+    {
+        "name": "issue",
+        "syntax": "#142"
+    },
+    {
+        "name": "task",
+        "syntax": "[X]complete/[ ]not"
+    },
+    {
+        "name": "codeblock",
+        "syntax": "```php $var=0;```"
+    },
+    {
+        "name": "shortblock",
+        "syntax": "`shortblock`"
+    },
+    {
+        "name": "emoji",
+        "syntax": ":tada:"
+    }
+
+]

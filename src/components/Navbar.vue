@@ -2,20 +2,24 @@
 	<div class="rocket-menu floating">
 		<img src="../assets/gopher.svg" alt="Rocket" @click="OpenMenu()">
 		<div class="menu" v-if="isOpen">
-			<input type="text" name="syntaxSearch" id="syntaxSearch" placeholder="syntax">
-			<p :value="searchResult" v-if="searchResult != ''"></p>
+			<input type="text" name="syntaxSearch" v-model="searchTerm" placeholder="syntax">
+			<div v-if="searchTerm != ''">
+				<p v-for="syntax in searchResult" :key="syntax.name">{{ "\n"+syntax.syntax}}</p>
+			</div>
 			<button @click.prevent="exportToPDF">Export To PDF</button>
-			<p class="credits">made with ☕ and <img src="../assets/vue.svg" alt="vue-logo"></p>
+			<p>made with ☕ and <img src="../assets/vue.svg" alt="vue-logo"></p>
 		</div>
 	</div>
 </template>
 
 <script>
+import json from "../assets/markdownSyntax.json";
 export default {
 	data() {
 		return {
 			isOpen: false,
-			searchResult : "",
+			searchTerm : "",
+			markdownSyntaxArray: json
 		}
 	},
 	methods: {
@@ -25,7 +29,9 @@ export default {
 	},
 	computed: {
 		searchResult() {
-			return 
+			return this.markdownSyntaxArray.filter(syntax =>{
+				return syntax.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+			});
 		}
 	}
 }
@@ -49,12 +55,10 @@ img{
 	background-color: #3f5468;
 	border-radius: 5px;
 	width: 100%;
+	font-size: 12px;
 }
 .menu img{
 	width: 20%;
-}
-.credits{
-	font-size: 12px;
 }
 @keyframes floating {
 	from { transform: translate(0,  0px); }

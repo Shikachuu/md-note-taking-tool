@@ -1,6 +1,7 @@
 <template>
 	<div class="editor">
 		<textarea class="hljs markdown" name="editor" :value="input" @input="update"></textarea>
+    <Navbar/>
 		<div class="compiled-md" v-html="compiledMd"></div>
 	</div>
 </template>
@@ -9,11 +10,15 @@
 import marked from "marked";
 import _ from "lodash";
 import highlightjs from "highlight.js";
+import Navbar from "./Navbar";
 export default {
-	name: "MarkdownWriter",
+  name: "MarkdownWriter",
+  components: {
+    Navbar,
+  },
   data() {
     return {
-      input: "# Welcome! \n `Start typing...`",
+      input: "# Welcome! \n `Start typing...`🚀",
     };
   },
   computed: {
@@ -43,7 +48,8 @@ export default {
 .editor{
 	display: flex;
 	align-items: stretch;
-	align-content: stretch;
+  align-content: stretch;
+  font-family: 'Roboto Mono', monospace;
 }
 textarea{
 	width: 100%;
