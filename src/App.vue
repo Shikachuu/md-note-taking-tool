@@ -17,15 +17,24 @@ export default {
 </script>
 
 <style>
+body{
+  background-color: #282c34;
+}
 #app{
   height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #282c34;
-  color: #3f5468;
+  color: white /*#3f5468*/;
+}
+table{
+  border: #3faf7e solid 2px;
+}
+td{
+  border: #3faf7e solid 2px;
 }
 .editor{
-  height: 95vh;
+  min-height: 95vh;
 }
 nav{
   height: 5vh;

@@ -1,6 +1,6 @@
 <template>
 	<div class="editor">
-		<textarea name="editor" :value="input" @input="update"></textarea>
+		<textarea class="hljs markdown" name="editor" :value="input" @input="update"></textarea>
 		<div class="compiled-md" v-html="compiledMd"></div>
 	</div>
 </template>
@@ -8,19 +8,27 @@
 <script>
 import marked from "marked";
 import _ from "lodash";
+import highlightjs from "highlight.js";
 export default {
 	name: "MarkdownWriter",
   data() {
     return {
-      input: "# Wellcome!",
+      input: "# Welcome! \n `Start typing...`",
     };
   },
   computed: {
     compiledMd: function() {
-      return marked(this.input, {
-      gfm: true,
-      sanitizer: true,
+      marked.setOptions({
+        renderer: new marked.Renderer(),
+        highlight: function(code) {
+          return highlightjs.highlightAuto(code).value;
+        },
+        gfm: true,
+        breaks: true,
+        sanitizer: true,
+        xhtml: false
       });
+      return marked(this.input);
     }
   },
   methods: {
@@ -49,5 +57,6 @@ textarea{
 .compiled-md{
   width: 100%;
   height: 100%;
+  background-color: #282c34;
 }
 </style>
