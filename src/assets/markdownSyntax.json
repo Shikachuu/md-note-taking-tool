@@ -37,7 +37,7 @@
     },
     {
         "name": "image",
-        "syntax": "![Alt text](url/location)"
+        "syntax": "![text](url)"
     },
     {
         "name": "link",
@@ -61,7 +61,7 @@
     },
     {
         "name": "task",
-        "syntax": "[X]complete/[ ]not"
+        "syntax": "[X]comp[ ]not"
     },
     {
         "name": "codeblock",

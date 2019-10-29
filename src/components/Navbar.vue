@@ -4,10 +4,10 @@
 		<div class="menu" v-if="isOpen">
 			<input type="text" name="syntaxSearch" v-model="searchTerm" placeholder="syntax">
 			<div v-if="searchTerm != ''">
-				<p v-for="syntax in searchResult" :key="syntax.name">{{ "\n"+syntax.syntax}}</p>
+				<p v-for="syntax in searchResult" :key="syntax.name" class="searchRes">{{ "\n"+syntax.syntax}}</p>
 			</div>
 			<button @click.prevent="exportToPDF">Export To PDF</button>
-			<p>made with ☕ and <img src="../assets/vue.svg" alt="vue-logo"></p>
+			<p>made with ☕ and <a href="https://vuejs.org/"><img src="../assets/vue.svg" alt="vue-logo"></a></p>
 		</div>
 	</div>
 </template>
@@ -67,16 +67,16 @@ img{
 }
 input{
 	background-color: #3f5468;
-	border-radius: 5px;
-	border-color: #21252b;
+	border: none;
 	max-width: 100%
 }
 button{
 	cursor: pointer;
-	background-color: #3f5468;
+	background-color: #21252b;
+	color: white;
+	border: none;
+}
+.searchRes{
 	color: #21252b;
-	border-radius: 5px;
-	border-color: #21252b;
-	width: 100%;
 }
 </style>
