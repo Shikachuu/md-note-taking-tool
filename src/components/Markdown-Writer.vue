@@ -1,7 +1,7 @@
 <template>
 	<div class="editor">
 		<textarea class="hljs markdown" name="editor" :value="input" @input="update"></textarea>
-    <Navbar/>
+    <Navbar :markdown=input />
 		<div class="compiled-md" v-html="compiledMd"></div>
 	</div>
 </template>
@@ -40,6 +40,16 @@ export default {
     update: _.debounce(function(e){
       this.input = e.target.value;
     },300),
+  },
+  mounted() {
+    if (localStorage.markdown) {
+      this.input = localStorage.markdown;
+    }
+  },
+  watch: {
+    input(newInput) {
+      localStorage.markdown = newInput;
+    }
   }
 }
 </script>

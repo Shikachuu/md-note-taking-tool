@@ -15,6 +15,9 @@
 <script>
 import json from "../assets/markdownSyntax.json";
 export default {
+	props: {
+		"markdown": String
+	},
 	data() {
 		return {
 			isOpen: false,
@@ -25,6 +28,9 @@ export default {
 	methods: {
 		OpenMenu() {
 			this.isOpen = !this.isOpen;
+		},
+		exportToPDF() {
+			
 		}
 	},
 	computed: {
