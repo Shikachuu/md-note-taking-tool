@@ -1,43 +1,18 @@
 <template>
 	<div class="rocket-menu floating">
-		<img src="../assets/gopher.svg" alt="Rocket" @click="OpenMenu()">
-		<div class="menu" v-if="isOpen">
-			<input type="text" name="syntaxSearch" v-model="searchTerm" placeholder="syntax">
-			<div v-if="searchTerm != ''">
-				<p v-for="syntax in searchResult" :key="syntax.name" class="searchRes">{{ "\n"+syntax.syntax}}</p>
-			</div>
-			<button @click.prevent="exportToPDF">Export To PDF</button>
-			<p>made with ☕ and <a href="https://vuejs.org/"><img src="../assets/vue.svg" alt="vue-logo"></a></p>
-		</div>
+		<img src="../assets/gopher.svg" alt="Rocket" @click="isOpen = !isOpen">
+		<NavbarMenu v-if="isOpen"/>
 	</div>
 </template>
 
 <script>
-import json from "../assets/markdownSyntax.json";
 export default {
-	props: {
-		"markdown": String
+	components: {
+		NavbarMenu: () => import("./NavbarMenu")
 	},
 	data() {
 		return {
 			isOpen: false,
-			searchTerm : "",
-			markdownSyntaxArray: json
-		}
-	},
-	methods: {
-		OpenMenu() {
-			this.isOpen = !this.isOpen;
-		},
-		exportToPDF() {
-			
-		}
-	},
-	computed: {
-		searchResult() {
-			return this.markdownSyntaxArray.filter(syntax =>{
-				return syntax.name.toLowerCase().includes(this.searchTerm.toLowerCase());
-			});
 		}
 	}
 }
@@ -57,32 +32,9 @@ img{
 	animation-iteration-count: infinite;
 	animation-timing-function: ease-in-out;
 }
-.menu{
-	background-color: #3f5468;
-	border-radius: 5px;
-	width: 100%;
-	font-size: 12px;
-}
-.menu img{
-	width: 20%;
-}
 @keyframes floating {
 	from { transform: translate(0,  0px); }
 	65%  { transform: translate(0, 15px); }
 	to   { transform: translate(0, -0px); }    
-}
-input{
-	background-color: #3f5468;
-	border: none;
-	max-width: 100%
-}
-button{
-	cursor: pointer;
-	background-color: #21252b;
-	color: white;
-	border: none;
-}
-.searchRes{
-	color: #21252b;
 }
 </style>

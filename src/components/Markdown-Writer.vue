@@ -1,11 +1,10 @@
 <template>
 	<div class="editor">
-		<textarea class="hljs markdown" name="editor" :value="input" @input="update"></textarea>
-    <Navbar :markdown=input />
-		<div class="compiled-md" v-html="compiledMd"></div>
+		<textarea name="editor" :value="input" @input="update"></textarea>
+    <Navbar />
+		<div id="compiledMd" v-html="compiledMd"></div>
 	</div>
 </template>
-
 <script>
 import marked from "marked";
 import _ from "lodash";
@@ -70,7 +69,7 @@ textarea{
   background-color: #21252b;
   color: #3f5468;
 }
-.compiled-md{
+#compiledMd{
   width: 100%;
   height: 100%;
   background-color: #282c34;
