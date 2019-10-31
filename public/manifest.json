@@ -1,11 +1,10 @@
 {
-    "name": "A Goopher in the Sapce",
+    "name": "A Goopher in the Space",
     "short_name": "AGS",
-    "theme_color": "#3f5468",
+    "theme_color": "#21252b",
     "background_color": "#21252b",
-    "display": "browser",
-    "Scope": "/",
-    "start_url": "/",
+    "start_url": "https://a-goopher-in-the.space",
+    "display": "standalone",
     "icons": [
       {
         "src": "img/icons/icon-72x72.png",
