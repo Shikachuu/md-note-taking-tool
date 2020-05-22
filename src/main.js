@@ -7,12 +7,11 @@ const options = {
   name: '_blank',
   specs: [
     "fullscreen=yes",
-    "titlebar=yes",
     "scrollbars=yes"
   ],
   styles: [
     "https://unpkg.com/normalize.css@8.0.1",
-    "../public/atom-one-dark.css"
+    "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"
   ]
 }
 Vue.use(VueHtmlToPaper,options);

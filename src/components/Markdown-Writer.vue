@@ -1,9 +1,9 @@
 <template>
-	<div class="editor">
-		<textarea name="editor" :value="input" @input="update"></textarea>
+  <div class="editor">
+    <textarea name="editor" :value="input" @input="update"></textarea>
     <Navbar />
-		<div id="compiledMd" v-html="compiledMd"></div>
-	</div>
+    <div id="compiledMd" class="markdown-body" v-html="compiledMd"></div>
+  </div>
 </template>
 <script>
 import marked from "marked";
@@ -13,11 +13,11 @@ import Navbar from "./Navbar";
 export default {
   name: "MarkdownWriter",
   components: {
-    Navbar,
+    Navbar
   },
   data() {
     return {
-      input: "# Welcome! \n `Start typing...`🚀",
+      input: "# Welcome! \n `Start typing...`🚀"
     };
   },
   computed: {
@@ -36,9 +36,9 @@ export default {
     }
   },
   methods: {
-    update: _.debounce(function(e){
+    update: _.debounce(function(e) {
       this.input = e.target.value;
-    },300),
+    }, 300)
   },
   mounted() {
     if (localStorage.markdown) {
@@ -50,26 +50,26 @@ export default {
       localStorage.markdown = newInput;
     }
   }
-}
+};
 </script>
 
 <style scoped>
-.editor{
-	display: flex;
-	align-items: stretch;
+.editor {
+  display: flex;
+  align-items: stretch;
   align-content: stretch;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
-textarea{
-	width: 100%;
-  height: 100%;
+textarea {
+  width: 100%;
+  height: 100vh;
   border: none;
   border-right: solid 1px #3f5468;
   resize: none;
   background-color: #21252b;
   color: #3f5468;
 }
-#compiledMd{
+#compiledMd {
   width: 100%;
   height: 100%;
   background-color: #282c34;
